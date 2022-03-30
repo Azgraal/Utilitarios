@@ -1,4 +1,4 @@
-package org.upskill.utils;
+package org.upskill.utils.excecoes;
 
 public class AnoInvalidoExcecao extends Exception{
 
