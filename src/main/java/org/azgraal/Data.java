@@ -1,8 +1,8 @@
-package org.upskill.utils;
+package org.azgraal;
 
-import org.upskill.utils.excecoes.AnoInvalidoExcecao;
-import org.upskill.utils.excecoes.DiaInvalidoExcecao;
-import org.upskill.utils.excecoes.MesInvalidoExcecao;
+import org.azgraal.excecoes.AnoInvalidoExcecao;
+import org.azgraal.excecoes.DiaInvalidoExcecao;
+import org.azgraal.excecoes.MesInvalidoExcecao;
 
 import java.util.Calendar;
 

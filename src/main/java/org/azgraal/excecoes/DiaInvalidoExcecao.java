@@ -1,4 +1,4 @@
-package org.upskill.utils.excecoes;
+package org.azgraal.excecoes;
 
 public class DiaInvalidoExcecao extends Exception{
 
