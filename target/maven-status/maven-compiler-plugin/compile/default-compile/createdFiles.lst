@@ -1,5 +1,6 @@
-org\upskill\utils\DiaInvalidoExcecao.class
+org\upskill\utils\Inputs.class
 org\upskill\utils\Data.class
-org\upskill\utils\AnoInvalidoExcecao.class
-org\upskill\utils\MesInvalidoExcecao.class
+org\upskill\utils\excecoes\DiaInvalidoExcecao.class
+org\upskill\utils\excecoes\AnoInvalidoExcecao.class
 org\upskill\utils\Tempo.class
+org\upskill\utils\excecoes\MesInvalidoExcecao.class
