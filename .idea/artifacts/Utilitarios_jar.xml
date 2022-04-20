@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Utilitarios:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Utilitarios_jar</output-path>
-    <root id="archive" name="Utilitarios.jar">
-      <element id="module-output" name="Utilitarios" />
-    </root>
-  </artifact>
-</component>
