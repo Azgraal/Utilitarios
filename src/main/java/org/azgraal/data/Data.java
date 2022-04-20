@@ -1,4 +1,4 @@
-package org.azgraal;
+package org.azgraal.data;
 
 import org.azgraal.excecoes.AnoInvalidoExcecao;
 import org.azgraal.excecoes.DiaInvalidoExcecao;
@@ -9,7 +9,7 @@ import java.util.Calendar;
 /**
  * Representa uma data através do dia, mês e ano.
  *
- * @author ISEP-DEI-PPROG, fork de Jorge Simões
+ * @author ISEP-DEI-PPROG, fork por Jorge "Azgraal" Simões
  */
 public class Data implements Comparable<Data> {
 
