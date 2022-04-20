@@ -1,4 +1,4 @@
-package org.azgraal.utilitarios;
+package io.github.azgraal.utilitarios;
 
 import java.util.Locale;
 import java.util.Scanner;

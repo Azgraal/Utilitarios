@@ -1,8 +1,8 @@
-package org.azgraal.data;
+package io.github.azgraal.data;
 
-import org.azgraal.excecoes.AnoInvalidoExcecao;
-import org.azgraal.excecoes.DiaInvalidoExcecao;
-import org.azgraal.excecoes.MesInvalidoExcecao;
+import io.github.azgraal.excecoes.AnoInvalidoExcecao;
+import io.github.azgraal.excecoes.DiaInvalidoExcecao;
+import io.github.azgraal.excecoes.MesInvalidoExcecao;
 
 import java.util.Calendar;
 

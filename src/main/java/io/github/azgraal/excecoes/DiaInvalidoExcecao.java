@@ -1,4 +1,4 @@
-package org.azgraal.excecoes;
+package io.github.azgraal.excecoes;
 
 public class DiaInvalidoExcecao extends Exception{
 

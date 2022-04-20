@@ -1,4 +1,4 @@
-package org.azgraal.data;
+package io.github.azgraal.data;
 
 import java.util.Calendar;
 
