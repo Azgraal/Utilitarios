@@ -1,4 +1,4 @@
-![image](https://i.imgur.com/PhyO4LQ.png)
+![image](https://i.imgur.com/tIUI10b.png)
 
 Vários utilitários pensados para facilitar operações comuns
 
