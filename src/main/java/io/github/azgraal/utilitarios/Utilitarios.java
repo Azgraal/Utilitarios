@@ -21,7 +21,6 @@ public class Utilitarios {
                 System.out.println(mensagemErro + "\n" + instrucao);
             }
         } while (numeroLido > max || numeroLido < min);
-        //leitura.next();                    //TODO testar se precisa de isto antes de um nextLine()
         return numeroLido;
     }
 
