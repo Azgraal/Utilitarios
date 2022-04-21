@@ -1,4 +1,9 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cz.jirutka.rsql/rsql-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cz.jirutka.rsql/rsql-parser)
+![image](https://i.imgur.com/tIUI10b.png)
 
-# Utilitarios
-Projeto com vários utilitários para usar como dependências
+Vários utilitários pensados para facilitar operações comuns
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/cz.jirutka.rsql/rsql-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/cz.jirutka.rsql/rsql-parser)
+[![image](https://img.shields.io/github/license/azgraal/utilitarios)](LICENSE)
+
+## Conteúdos:
+
