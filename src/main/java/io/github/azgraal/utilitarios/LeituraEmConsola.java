@@ -3,7 +3,7 @@ package io.github.azgraal.utilitarios;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Utilitarios {
+public class LeituraEmConsola {
 
     public static final Locale PORTUGUES = new Locale("pt", "PT");
 
