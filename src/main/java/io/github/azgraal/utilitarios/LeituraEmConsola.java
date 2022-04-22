@@ -43,12 +43,23 @@ public class LeituraEmConsola {
         return numeroLido;
     }
 
-    public static String lerAceitaString(String instrucao, String mensagemErro){
+    public static String lerValidaString(String instrucao, String mensagemErro){  //Exemplo correto
         Scanner leitura = new Scanner(System.in);
         if (instrucao != null && !instrucao.isEmpty() && !instrucao.isBlank()) System.out.println(instrucao);
-        String textoLido;
-        while ((textoLido = leitura.nextLine().trim()).length() == 0){
+        String textoLido = leitura.nextLine();
+        while (textoLido == null || textoLido.isEmpty() || textoLido.isBlank()){
             System.out.println(mensagemErro + "\n" + instrucao);
+            textoLido = leitura.nextLine();
+        }
+        return textoLido;
+    }
+
+    public static String lerString(String instrucao) throws IllegalArgumentException {  //Exemplo correto
+        Scanner leitura = new Scanner(System.in);
+        if (instrucao != null && !instrucao.isEmpty() && !instrucao.isBlank()) System.out.println(instrucao);
+        String textoLido = leitura.nextLine();
+        if (textoLido == null || textoLido.isEmpty() || textoLido.isBlank()){
+            throw new IllegalArgumentException("Texto inválido!");
         }
         return textoLido;
     }
