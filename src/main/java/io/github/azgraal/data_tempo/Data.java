@@ -111,7 +111,11 @@ public class Data implements Comparable<Data>, StringsGlobais {
     }
 
     public void setDia(int dia) throws DiaInvalidoExcecao {
-        if (dia > Meses.values()[mes].diasPorMes){
+        int diasNoMes = Meses.values()[mes].diasPorMes;
+        if (isAnoBissexto(ano)){
+            diasNoMes++;
+        }
+        if (dia > diasNoMes){
             throw new DiaInvalidoExcecao(DIA_INVALIDO);
         } else {
             this.dia = dia;
@@ -194,12 +198,15 @@ public class Data implements Comparable<Data>, StringsGlobais {
 
     private int contaDias() {
         int totalDias = 0;
-
         for (int i = 1; i < ano; i++) {
             totalDias += isAnoBissexto(i) ? 366 : 365;
         }
         for (int i = 1; i < mes; i++) {
-            totalDias += Meses.values()[i].getDiasPorMes();
+            int diasNoMes = Meses.values()[i].diasPorMes;
+            if (isAnoBissexto(ano)){
+                diasNoMes++;
+            }
+            totalDias += diasNoMes;
         }
         totalDias += (isAnoBissexto(ano) && mes > 2) ? 1 : 0;
         totalDias += dia;
