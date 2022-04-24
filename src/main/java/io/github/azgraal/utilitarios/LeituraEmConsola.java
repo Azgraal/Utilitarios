@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import io.github.azgraal.StringsGlobais;
 
 import static io.github.azgraal.utilitarios.EscritaEmConsola.mostraListaNumerada;
 import static io.github.azgraal.utilitarios.Verificacao.*;
@@ -18,7 +19,7 @@ import static io.github.azgraal.utilitarios.Verificacao.*;
  * Classe com métodos estáticos pensados para fazer leituras de escrita em consola,
  * com as devidas verificações e cíclos, garantindo que têm sempre um resultado válido.
  */
-public class LeituraEmConsola {
+public class LeituraEmConsola implements StringsGlobais{
 
     public static final Locale PORTUGUES = new Locale("pt", "PT");
 
@@ -30,7 +31,7 @@ public class LeituraEmConsola {
         int numeroLido;
         String escrita = leitura.nextLine();
         while (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
-            System.out.println("Número inválido\n" + instrucao);
+            System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
             escrita = leitura.nextLine();
         }
         numeroLido = Integer.parseInt(escrita);
@@ -43,7 +44,7 @@ public class LeituraEmConsola {
         int numeroLido;
         String escrita = leitura.nextLine();
         if (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
-            throw new NumberFormatException("Número inválido");
+            throw new NumberFormatException(NUMERO_INVALIDO);
         }
         numeroLido = Integer.parseInt(escrita);
         leitura.close();
@@ -52,7 +53,7 @@ public class LeituraEmConsola {
 
     public static int lerAceitaApenasInteirosComLimites(int min, int max, String instrucao) {
         if (min >= max){
-            throw new IllegalArgumentException("O valor mínimo não pode ser maior ou igual ao máximo");
+            throw new IllegalArgumentException(ERRO_MIN_MAX);
         }
         Scanner leitura = new Scanner(System.in);
         if (isStringValida(instrucao)){
@@ -62,12 +63,12 @@ public class LeituraEmConsola {
         do {
             String escrita = leitura.nextLine();
             while (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
-                System.out.println("Número inválido\n" + instrucao);
+                System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
                 escrita = leitura.nextLine();
             }
             numeroLido = Integer.parseInt(escrita);
             if (numeroLido > max || numeroLido < min) {
-                System.out.println("Número inválido\n" + instrucao);
+                System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
             }
         } while (numeroLido > max || numeroLido < min);
         leitura.close();
@@ -76,17 +77,17 @@ public class LeituraEmConsola {
 
     public static int lerAceitaApenasInteirosComLimites(int min, int max){
         if (min >= max){
-            throw new IllegalArgumentException("O valor mínimo não pode ser maior ou igual ao máximo");
+            throw new IllegalArgumentException(ERRO_MIN_MAX);
         }
         Scanner leitura = new Scanner(System.in);
         int numeroLido;
         String escrita = leitura.nextLine();
         if (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
-            throw new NumberFormatException("Número inválido");
+            throw new NumberFormatException(NUMERO_INVALIDO);
         }
         numeroLido = Integer.parseInt(escrita);
         if (numeroLido > max || numeroLido < min) {
-            throw new NumberFormatException("Número fora dos limites escolhidos");
+            throw new NumberFormatException(ERRO_LIMITES);
         }
         leitura.close();
         return numeroLido;
@@ -101,7 +102,7 @@ public class LeituraEmConsola {
         do {
             String escrita = leitura.nextLine();
             while (escrita.isBlank() || escrita.isEmpty() || !isStringFloat(escrita)){
-                System.out.println("Número inválido\n" + instrucao);
+                System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
                 escrita = leitura.nextLine();
             }
             if (escrita.contains(",")){
@@ -110,7 +111,7 @@ public class LeituraEmConsola {
             numeroLido = Float.parseFloat(escrita);
             if (apenasPositivo){
                 if (numeroLido <= 0){
-                    System.out.println("Número inválido\n" + instrucao);
+                    System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
                 }
             }
         } while (apenasPositivo && numeroLido <= 0);
@@ -127,7 +128,7 @@ public class LeituraEmConsola {
         do {
             String escrita = leitura.nextLine();
             while (escrita.isBlank() || escrita.isEmpty() || !isStringDouble(escrita)){
-                System.out.println("Número inválido\n" + instrucao);
+                System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
                 escrita = leitura.nextLine();
             }
             if (escrita.contains(",")){
@@ -136,7 +137,7 @@ public class LeituraEmConsola {
             numeroLido = Double.parseDouble(escrita);
             if (apenasPositivo){
                 if (numeroLido <= 0){
-                    System.out.println("Número inválido\n" + instrucao);
+                    System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
                 }
             }
         } while (apenasPositivo && numeroLido <= 0);
@@ -151,7 +152,7 @@ public class LeituraEmConsola {
         }
         String textoLido = leitura.nextLine();
         while (textoLido == null || textoLido.isEmpty() || textoLido.isBlank()){
-            System.out.println("Valor nulo/vazio/em branco não é permitido\n" + instrucao);
+            System.out.println(VALOR_INVALIDO + "\n" + instrucao);
             textoLido = leitura.nextLine();
         }
         leitura.close();
@@ -165,7 +166,7 @@ public class LeituraEmConsola {
         }
         String textoLido = leitura.nextLine();
         if (!isStringValida(textoLido)){
-            throw new IllegalArgumentException("Texto inválido!");
+            throw new IllegalArgumentException(TEXTO_INVALIDO);
         }
         leitura.close();
         return textoLido;
@@ -175,7 +176,7 @@ public class LeituraEmConsola {
         Scanner leitura = new Scanner(System.in);
         String textoLido = leitura.nextLine();
         if (!isStringValida(textoLido)){
-            throw new IllegalArgumentException("Texto inválido!");
+            throw new IllegalArgumentException(TEXTO_INVALIDO);
         }
         leitura.close();
         return textoLido;
@@ -189,7 +190,7 @@ public class LeituraEmConsola {
         String linhaLida;
         while ((linhaLida = leitura.nextLine()).isEmpty() ||
                 (!(linhaLida = linhaLida.toLowerCase()).equals((confirmar).toLowerCase()) && !linhaLida.equals(rejeitar.toLowerCase()))){
-            System.out.println("Opção inválida\n" + instrucao);
+            System.out.println(OPCAO_INVALIDA + "\n" + instrucao);
         }
         leitura.close();
         return linhaLida.equalsIgnoreCase(confirmar);
@@ -197,7 +198,7 @@ public class LeituraEmConsola {
 
     public static int lerEscolherOpcaoLista(@NotNull List<?> lista, String instrucao){
         if (lista.isEmpty()){
-            throw new IllegalArgumentException("A lista não pode ser nula");
+            throw new IllegalArgumentException(LISTA_NULA_ERRO);
         } else {
             mostraListaNumerada(lista);
             return  lerAceitaApenasInteirosComLimites(1, lista.size(), instrucao);
@@ -205,30 +206,36 @@ public class LeituraEmConsola {
     }
 
     public static Tempo lerECriarTempo(String instrucaoExtra) throws TempoInvalidoExcecao {
-        int horaTemp = 0;
-        int minutoTemp = 0;
-        int segundoTemp = 0;
+        Tempo tempoCriado;
+        int horaTemp;
+        int minutoTemp;
+        int segundoTemp;
         if (!instrucaoExtra.isBlank() && !instrucaoExtra.isEmpty()){
             System.out.println(instrucaoExtra);
         }
         try {
-            System.out.print("\nHoras: ");
+            System.out.print("\n" + HORAS_PERGUNTA);
             horaTemp = lerAceitaApenasInteiros();
         } catch (NumberFormatException e){
-            throw new HoraInvalidaExcecao("Hora inválida");
+            throw new HoraInvalidaExcecao(HORA_INVALIDA);
         }
         try {
-            System.out.print("\nMinutos: ");
+            System.out.print("\n" + MINUTOS_PERGUNTA);
             minutoTemp = lerAceitaApenasInteiros();
         } catch (NumberFormatException e){
-            throw new MinutoInvalidoExcecao("Minuto inválido");
+            throw new MinutoInvalidoExcecao(MINUTO_INVALIDO);
         }
         try {
-            System.out.println("\nSegundos: ");
+            System.out.println("\n" + SEGUNDOS_PERGUNTA);
             segundoTemp = lerAceitaApenasInteiros();
         } catch (NumberFormatException e){
-            throw new SegundoInvalidoExcecao("Segundo inválido");
+            throw new SegundoInvalidoExcecao(SEGUNDO_INVALIDO);
         }
-        //TODO criar verificação de Tempo válido nos construtores da classe Tempo para depois continuar aqui isto.
+        try {
+            tempoCriado = new Tempo(horaTemp, minutoTemp, segundoTemp);
+            return tempoCriado;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 }

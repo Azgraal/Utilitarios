@@ -1,8 +1,13 @@
 package io.github.azgraal.data_tempo;
 
+import io.github.azgraal.StringsGlobais;
+import io.github.azgraal.excecoes.TempoInvalidoExcecao;
+import io.github.azgraal.excecoes.tempo.*;
+
 import java.util.Calendar;
 
-public class Tempo implements Comparable<Tempo> {
+public class Tempo implements Comparable<Tempo>, StringsGlobais {
+    
 
 
     private int horas;
@@ -22,24 +27,42 @@ public class Tempo implements Comparable<Tempo> {
     private static final int SEGUNDOS_POR_OMISSAO = 0;
 
 
-    public Tempo(int horas, int minutos, int segundos) {
-        this.horas = horas;
-        this.minutos = minutos;
-        this.segundos = segundos;
+    public Tempo(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
+        try {
+            validarHora(horas);
+            validarMinuto(minutos);
+            validarSegundo(segundos);
+            this.horas = horas;
+            this.minutos = minutos;
+            this.segundos = segundos;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
 
-    public Tempo(int horas, int minutos) {
-        this.horas = horas;
-        this.minutos = minutos;
-        segundos = SEGUNDOS_POR_OMISSAO;
+    public Tempo(int horas, int minutos) throws TempoInvalidoExcecao {
+        try {
+            validarHora(horas);
+            validarMinuto(minutos);
+            this.horas = horas;
+            this.minutos = minutos;
+            segundos = SEGUNDOS_POR_OMISSAO;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
 
-    public Tempo(int horas) {
-        this.horas = horas;
-        minutos = MINUTOS_POR_OMISSAO;
-        segundos = SEGUNDOS_POR_OMISSAO;
+    public Tempo(int horas) throws TempoInvalidoExcecao {
+        try {
+            validarHora(horas);
+            this.horas = horas;
+            minutos = MINUTOS_POR_OMISSAO;
+            segundos = SEGUNDOS_POR_OMISSAO;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
 
@@ -72,25 +95,64 @@ public class Tempo implements Comparable<Tempo> {
     }
 
 
-    public void setHoras(int horas) {
-        this.horas = horas;
+    public void setHoras(int horas) throws TempoInvalidoExcecao {
+       try {
+           validarHora(horas);
+           this.horas = horas;
+       } catch (TempoInvalidoExcecao e){
+           throw new TempoInvalidoExcecao(e.getMessage());
+       }
     }
 
 
-    public void setMinutos(int minutos) {
-        this.minutos = minutos;
+    public void setMinutos(int minutos) throws TempoInvalidoExcecao {
+        try {
+            validarMinuto(minutos);
+            this.minutos = minutos;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
 
-    public void setSegundos(int segundos) {
-        this.segundos = segundos;
+    public void setSegundos(int segundos) throws TempoInvalidoExcecao {
+        try {
+            validarSegundo(segundos);
+            this.segundos = segundos;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
+    private void validarHora(int hora) throws HoraInvalidaExcecao {
+        if (hora > 23){
+            throw new HoraInvalidaExcecao(EXCECAO_HORAS);
+        }
+    }
 
-    public void setTempo(int horas, int minutos, int segundos) {
-        this.horas = horas;
-        this.minutos = minutos;
-        this.segundos = segundos;
+    private void validarMinuto(int minuto) throws MinutoInvalidoExcecao {
+        if (minuto > 59){
+            throw new MinutoInvalidoExcecao(EXCECAO_MINUTOS);
+        }
+    }
+
+    private void validarSegundo(int segundo) throws SegundoInvalidoExcecao {
+        if (segundo > 59){
+            throw new SegundoInvalidoExcecao(EXCECAO_SEGUNDOS);
+        }
+    }
+
+    public void setTempo(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
+        try {
+            validarHora(horas);
+            validarMinuto(minutos);
+            validarSegundo(segundos);
+            this.horas = horas;
+            this.minutos = minutos;
+            this.segundos = segundos;
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
 
@@ -98,7 +160,7 @@ public class Tempo implements Comparable<Tempo> {
     public String toString() {
         return String.format("%02d:%02d:%02d %s",
                 (horas == 12 || horas == 0) ? 12 : horas % 12,
-                minutos, segundos, horas < 12 ? "AM" : "PM");
+                minutos, segundos, horas < 12 ? AM : PM);
     }
 
 
@@ -142,9 +204,13 @@ public class Tempo implements Comparable<Tempo> {
     }
 
 
-    public boolean isMaior(int horas, int minutos, int segundos) {
-        Tempo outroTempo = new Tempo(horas, minutos, segundos);
-        return this.toSegundos() > outroTempo.toSegundos();
+    public boolean isMaior(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
+        try {
+            Tempo outroTempo = new Tempo(horas, minutos, segundos);
+            return this.toSegundos() > outroTempo.toSegundos();
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
     }
 
     public int diferencaEmSegundos(Tempo outroTempo) {
@@ -152,22 +218,34 @@ public class Tempo implements Comparable<Tempo> {
     }
 
 
-    public Tempo diferencaEmTempo(Tempo outroTempo) {
+    public Tempo diferencaEmTempo(Tempo outroTempo) throws TempoInvalidoExcecao {
+        Tempo tempoCriado;
         int dif = diferencaEmSegundos(outroTempo);
         int s = dif % 60;
         dif = dif / 60;
         int m = dif % 60;
         int h = dif / 60;
-        return new Tempo(h, m, s);
+        try {
+            tempoCriado = new Tempo(h, m, s);
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
+        return tempoCriado;
     }
 
 
-    public static Tempo tempoAtual() {
+    public static Tempo tempoAtual() throws TempoInvalidoExcecao {
+        Tempo tempoCriado;
         Calendar agora = Calendar.getInstance();
         int hora = agora.get(Calendar.HOUR_OF_DAY);
         int minuto = agora.get(Calendar.MINUTE);
         int segundo = agora.get(Calendar.SECOND);
-        return new Tempo(hora,minuto,segundo);
+        try {
+            tempoCriado = new Tempo(hora,minuto,segundo);
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
+        return tempoCriado;
     }
 
 
