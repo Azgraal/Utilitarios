@@ -6,6 +6,7 @@ target/*
 out/*
 .idea/*
 test/*
+*.iml
 
 # Log file
 *.log
