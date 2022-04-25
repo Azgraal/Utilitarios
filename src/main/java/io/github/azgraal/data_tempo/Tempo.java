@@ -7,8 +7,6 @@ import io.github.azgraal.excecoes.tempo.*;
 import java.util.Calendar;
 
 public class Tempo implements Comparable<Tempo>, StringsGlobais {
-    
-
 
     private int horas;
 
