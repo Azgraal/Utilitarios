@@ -74,7 +74,7 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve um número inteiro caso o valor inserido tenha sido válido e dentro dos limites escolhidos.
      */
     public static int lerAceitaApenasInteirosComLimites(int min, int max, String instrucao) {
-        if (min >= max){
+        if (min > max){
             throw new IllegalArgumentException(ERRO_MIN_MAX);
         }
         Scanner lerAAICLs = new Scanner(System.in);
@@ -105,7 +105,7 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve um número inteiro caso o valor inserido tenha sido válido e dentro dos limites escolhidos.
      */
     public static int lerAceitaApenasInteirosComLimites(int min, int max){
-        if (min >= max){
+        if (min > max){
             throw new IllegalArgumentException(ERRO_MIN_MAX);
         }
         Scanner lerAAICL = new Scanner(System.in);

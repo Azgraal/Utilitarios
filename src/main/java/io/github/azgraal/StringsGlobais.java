@@ -103,7 +103,7 @@ public interface StringsGlobais {
     /**
      * Erro nos valores mínimo ou máximo
      */
-    String ERRO_MIN_MAX = "O valor mínimo não pode ser maior ou igual ao máximo";
+    String ERRO_MIN_MAX = "O valor mínimo não pode ser maior que o máximo";
     /**
      * Extensão inválida
      */
