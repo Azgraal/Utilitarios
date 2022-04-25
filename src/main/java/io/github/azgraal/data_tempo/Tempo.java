@@ -260,13 +260,20 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
                 && segundos == outroTempo.segundos;
     }
 
-
+    /**
+     * Compara um objeto Tempo a outro e devolve um resultado que indica qual dois dois é o "maior"
+     * @param outroTempo o objeto com o qual comparar o primeiro.
+     * @return devolve 1 se o primeiro for maior, -1 se o outroTempo for maior, 0 se forem iguais.
+     */
     @Override
     public int compareTo(Tempo outroTempo) {
         return (outroTempo.isMaior(this)) ? -1 : (isMaior(outroTempo)) ? 1 : 0;
     }
 
 
+    /**
+     * Acrescenta um segundo a um Tempo, como se fosse um movimento do ponteiro dos segundos.
+     */
     public void tick() {
         segundos = ++segundos % 60;
         if (segundos == 0) {
@@ -277,11 +284,25 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         }
     }
 
+    /**
+     * Verifica se um objeto Tempo é maior do que outro.
+     * @param outroTempo o outro objeto Tempo com o qual comparar o primeiro.
+     * @return devolve verdadeiro ou falso, conforme o primeiro Tempo seja maior ou menor que o outro.
+     */
     public boolean isMaior(Tempo outroTempo) {
         return toSegundos() > outroTempo.toSegundos();
     }
 
-
+    /**
+     * Verifica se um objeto Tempo é maior que outro Tempo formado pela hora, minutos e segundos passados
+     * como parâmetro.
+     * @param horas horas a verificar
+     * @param minutos minutos a verificar
+     * @param segundos segundos a verificar
+     * @return devolve verdadeiro ou falso, conforme o primeiro Tempo seja maior ou menor que o outro.
+     * @throws TempoInvalidoExcecao exceção criada caso os parâmetros passados não formem um objeto
+     * Tempo que seja válido.
+     */
     public boolean isMaior(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
         try {
             Tempo outroTempo = new Tempo(horas, minutos, segundos);
@@ -291,11 +312,21 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         }
     }
 
+    /**
+     * Calcula a diferença absoluta em segundos de um Tempo para outro.
+     * @param outroTempo o outro Tempo a ser comparado.
+     * @return devolve o valor absoluto em segundos da diferença entre os dois Tempos.
+     */
     public int diferencaEmSegundos(Tempo outroTempo) {
         return Math.abs(toSegundos() - outroTempo.toSegundos());
     }
 
-
+    /**
+     * Calcula a diferença de um Tempo para o outro, criando um terceiro objeto Tempo com o resultado.
+     * @param outroTempo o outro Tempo a ser comparado.
+     * @return devolve um objeto Tempo com a diferença entre os dois Tempos comparados.
+     * @throws TempoInvalidoExcecao exceção criada quando o Tempo resultante não é válido.
+     */
     public Tempo diferencaEmTempo(Tempo outroTempo) throws TempoInvalidoExcecao {
         Tempo tempoCriado;
         int dif = diferencaEmSegundos(outroTempo);
@@ -311,7 +342,11 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         return tempoCriado;
     }
 
-
+    /**
+     * Cria um objeto Tempo com as horas, minutos e segundos atuais do Sistema.
+     * @return devolve o Tempo atual do Sistema naquele instante.
+     * @throws TempoInvalidoExcecao exceção criada quando o Tempo resultante é inválido.
+     */
     public static Tempo tempoAtual() throws TempoInvalidoExcecao {
         Tempo tempoCriado;
         Calendar agora = Calendar.getInstance();
@@ -326,7 +361,10 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         return tempoCriado;
     }
 
-
+    /**
+     * Converte um objeto Tempo no número total de segundos.
+     * @return devolve um número inteiro com o total de segundos.
+     */
     private int toSegundos() {
         return horas * 3600 + minutos * 60 + segundos;
     }
