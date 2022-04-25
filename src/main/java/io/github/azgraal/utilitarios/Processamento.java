@@ -35,7 +35,7 @@ public class Processamento {
      * @throws ExtensaoInvalidaExcecao exceção criada caso a extensão do ficheiro seja inválida.
      * @throws FileNotFoundException exceção criada caso o ficheiro não exista
      */
-    public static void gravarTextoEmFicheiroTxt(@NotNull String texto, @NotNull File ficheiro) throws ExtensaoInvalidaExcecao, FileNotFoundException {
+    public static void gravarTextoEmFicheiroTxt(@NotNull String texto, @NotNull File ficheiro) throws FileNotFoundException, ExtensaoInvalidaExcecao {
         String nomeFicheiro = ficheiro.getName();
         nomeFicheiro = nomeFicheiro.substring(nomeFicheiro.length() - 4);
         if (nomeFicheiro.equalsIgnoreCase(".txt")) {
