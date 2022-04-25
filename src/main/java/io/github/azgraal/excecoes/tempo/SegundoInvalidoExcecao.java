@@ -4,6 +4,7 @@ import io.github.azgraal.excecoes.TempoInvalidoExcecao;
 
 /**
  * Exceção para os problemas no valor dos segundos durante a criação de objetos Tempo.
+ * @author Jorge "Azgraal" Simões
  */
 public class SegundoInvalidoExcecao extends TempoInvalidoExcecao {
 

@@ -8,7 +8,8 @@ import java.io.FileNotFoundException;
 import java.util.Formatter;
 
 /**
- * Classe com métodos estáticos para processamento de dados
+ * Classe com métodos estáticos para processamento de dados.
+ * @author Jorge "Azgraal" Simões
  */
 public class Processamento {
 

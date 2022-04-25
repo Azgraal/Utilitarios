@@ -1,10 +1,11 @@
 package io.github.azgraal.excecoes;
 
-/**
- * Exceção geral para os problemas na leitura de ficheiros com extensão errada.
- */
 import java.io.IOException;
 
+/**
+ * Exceção geral para os problemas na leitura de ficheiros com extensão errada.
+ * @author Jorge "Azgraal" Simões
+ */
 public class ExtensaoInvalidaExcecao extends IOException {
 
     /**

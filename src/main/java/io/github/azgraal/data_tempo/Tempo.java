@@ -8,6 +8,7 @@ import java.util.Calendar;
 
 /**
  * Classe que permite criar objetos Tempo que indicam um momento com horas, minutos e segundos
+ * @author Jorge "Azgraal" Simões
  */
 public class Tempo implements Comparable<Tempo>, StringsGlobais {
 
@@ -33,8 +34,7 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
      * @param horas as horas que o objeto deve ter.
      * @param minutos os minutos que o objeto deve ter.
      * @param segundos os segundos que o objeto deve ter.
-     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
-     * das horas, minutos e segundos.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação das horas, minutos e segundos.
      */
     public Tempo(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
         try {
@@ -54,8 +54,7 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
      * Construtor que recebe os valores para horas e minutos, e cria um objeto Tempo.
      * @param horas as horas que o objeto deve ter.
      * @param minutos os minutos que o objeto deve ter.
-     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
-     * das horas e minutos.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação das horas e minutos.
      */
     public Tempo(int horas, int minutos) throws TempoInvalidoExcecao {
         try {
@@ -72,8 +71,7 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
     /**
      * Construtor que recebe os valores para horas e cria um objeto Tempo.
      * @param horas as horas que o objeto deve ter.
-     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
-     * das horas.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação das horas.
      */
     public Tempo(int horas) throws TempoInvalidoExcecao {
         try {
@@ -88,8 +86,6 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
 
     /**
      * Construtor vazio que cria um objeto Tempo.
-     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
-     * do tempo.
      */
     public Tempo() {
         horas = HORAS_POR_OMISSAO;
@@ -142,7 +138,7 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         try {
             setHoras(horas);
             setMinutos(minutos);
-            setSegundos(segundos);                                              //TODO testar antes de publicar!!!!!
+            setSegundos(segundos);                
         } catch (TempoInvalidoExcecao e){
             throw new TempoInvalidoExcecao(e.getMessage());
         }
@@ -294,14 +290,12 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
     }
 
     /**
-     * Verifica se um objeto Tempo é maior que outro Tempo formado pela hora, minutos e segundos passados
-     * como parâmetro.
+     * Verifica se um objeto Tempo é maior que outro Tempo formado pela hora, minutos e segundos passados como parâmetro.
      * @param horas horas a verificar
      * @param minutos minutos a verificar
      * @param segundos segundos a verificar
      * @return devolve verdadeiro ou falso, conforme o primeiro Tempo seja maior ou menor que o outro.
-     * @throws TempoInvalidoExcecao exceção criada caso os parâmetros passados não formem um objeto
-     * Tempo que seja válido.
+     * @throws TempoInvalidoExcecao exceção criada caso os parâmetros passados não formem um objeto Tempo que seja válido.
      */
     public boolean isMaior(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
         try {

@@ -4,6 +4,7 @@ import io.github.azgraal.excecoes.DataInvalidaExcecao;
 
 /**
  * Exceção para os problemas no valor do ano durante a criação de objetos Data.
+ * @author Jorge "Azgraal" Simões
  */
 public class AnoInvalidoExcecao extends DataInvalidaExcecao {
 

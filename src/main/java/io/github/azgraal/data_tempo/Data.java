@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 /**
  * Classe que permite criar objetos Data que indicam um momento com ano, mês e dia.
+ * @author Jorge "Azgraal" Simões
  */
 public class Data implements Comparable<Data>, StringsGlobais {
 
@@ -66,8 +67,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
         private int diasPorMes;
 
         /**
-         * Construtor do enumerador, onde é passado por parâmetro o nome do mês em string
-         * e o número de dias desse mês num número inteiro.
+         * Construtor do enumerador, onde é passado por parâmetro o nome do mês em string e o número de dias desse mês num número inteiro.
          * @param nomeMes string com o nome do mês.
          * @param diasPorMes número inteiro com o total de dias nesse mês.
          */
@@ -98,8 +98,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
      * @param ano o ano que o objeto deve ter.
      * @param mes o mês que o objeto deve ter.
      * @param dia o dia que o objeto deve ter.
-     * @throws DataInvalidaExcecao exceção criada quando os valores do ano, mês e dia não permitem
-     * a criação de uma Data válida.
+     * @throws DataInvalidaExcecao exceção criada quando os valores do ano, mês e dia não permitem a criação de uma Data válida.
      */
     public Data(int ano, int mes, int dia) throws DataInvalidaExcecao {
         setData(ano, mes, dia);
@@ -154,8 +153,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
      * @param ano o novo valor do ano.
      * @param mes o novo valor do mês.
      * @param dia o novo valor do dia.
-     * @throws DataInvalidaExcecao exceção criada quando os valores do ano, mês ou dia não permitem
-     * a criação de um objeto Data válido.
+     * @throws DataInvalidaExcecao exceção criada quando os valores do ano, mês ou dia não permitem a criação de um objeto Data válido.
      */
     public void setData(int ano, int mes, int dia) throws DataInvalidaExcecao {
         setAno(ano);
@@ -166,8 +164,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
     /**
      * Altera o valor do ano de um objeto Data.
      * @param ano o novo valor do ano.
-     * @throws AnoInvalidoExcecao exceção criada quando o valor do ano não permite
-     * a criação de um objeto Data válido.
+     * @throws AnoInvalidoExcecao exceção criada quando o valor do ano não permite a criação de um objeto Data válido.
      */
     public void setAno(int ano) throws AnoInvalidoExcecao {
         if (ano < 1752){              //Nota: 1752 foi o ano em que o calendário Gregoriano foi adotado
@@ -180,8 +177,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
     /**
      * Altera o valor do mês de um objeto Data.
      * @param mes o novo valor do mês.
-     * @throws MesInvalidoExcecao exceção criada quando o valor do mês não permite
-     * a criação de um objeto Data válido.
+     * @throws MesInvalidoExcecao exceção criada quando o valor do mês não permite a criação de um objeto Data válido.
      */
     public void setMes(int mes) throws MesInvalidoExcecao {
         if (mes > 12){
@@ -194,8 +190,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
     /**
      * Altera o valor do dia de um objeto Data.
      * @param dia o novo valor do dia.
-     * @throws DiaInvalidoExcecao exceção criada quando o valor do dia não permite
-     * a criação de um objeto Data válido.
+     * @throws DiaInvalidoExcecao exceção criada quando o valor do dia não permite a criação de um objeto Data válido.
      */
     public void setDia(int dia) throws DiaInvalidoExcecao {
         int diasNoMes = Meses.values()[mes].diasPorMes;
@@ -291,14 +286,12 @@ public class Data implements Comparable<Data>, StringsGlobais {
     }
 
     /**
-     * Calcula a diferença absoluta entre duas datas, recebendo os valores de ano, mês e dia que
-     * compõem a outra Data.
+     * Calcula a diferença absoluta entre duas datas, recebendo os valores de ano, mês e dia que compõem a outra Data.
      * @param ano ano da outra Data.
      * @param mes mes da outra Data.
      * @param dia dia da outra Data.
      * @return devolve um número inteiro com o total de dias de diferença entre as duas Datas.
-     * @throws DataInvalidaExcecao exceção criada quando os valores do ano, mês ou dia da outra Data não
-     * são válidos.
+     * @throws DataInvalidaExcecao exceção criada quando os valores do ano, mês ou dia da outra Data não são válidos.
      */
     public int diferenca(int ano, int mes, int dia) throws DataInvalidaExcecao {
         int totalDias = contaDias();
@@ -311,7 +304,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
     /**
      * Verifica se o ano é bissexto.
      * @param ano ano a ser verificado
-     * @return
+     * @return devolve verdadeiro ou falso, conforme o resultado
      */
     public static boolean isAnoBissexto(int ano) {
         return ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0;

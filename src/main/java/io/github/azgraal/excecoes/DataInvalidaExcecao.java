@@ -2,6 +2,7 @@ package io.github.azgraal.excecoes;
 
 /**
  * Exceção geral para os problemas na criação de objetos Data.
+ * @author Jorge "Azgraal" Simões
  */
 public class DataInvalidaExcecao extends Exception{
 

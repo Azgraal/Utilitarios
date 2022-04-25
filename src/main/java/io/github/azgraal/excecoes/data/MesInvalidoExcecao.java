@@ -4,6 +4,7 @@ import io.github.azgraal.excecoes.DataInvalidaExcecao;
 
 /**
  * Exceção para os problemas no valor do mês durante a criação de objetos Data.
+ * @author Jorge "Azgraal" Simões
  */
 public class MesInvalidoExcecao extends DataInvalidaExcecao {
 

@@ -4,6 +4,7 @@ import static io.github.azgraal.utilitarios.Processamento.converterVirgulaEmPont
 
 /**
  * Classe com métodos estáticos destinados a fazer verificações de várias condições.
+ * @author Jorge "Azgraal" Simões
  */
 public class Verificacao {
 

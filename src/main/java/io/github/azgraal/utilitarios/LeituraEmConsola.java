@@ -23,6 +23,7 @@ import static io.github.azgraal.utilitarios.Verificacao.*;
 /**
  * Classe com métodos estáticos pensados para fazer leituras de escrita em consola,
  * com as devidas verificações e cíclos, garantindo que têm sempre um resultado válido.
+ * @author Jorge "Azgraal" Simões
  */
 public class LeituraEmConsola implements StringsGlobais{
 

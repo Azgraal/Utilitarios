@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Classe com métodos estáticos usados para apresentar informação na consola.
+ * @author Jorge "Azgraal" Simões
  */
 public class EscritaEmConsola {
 

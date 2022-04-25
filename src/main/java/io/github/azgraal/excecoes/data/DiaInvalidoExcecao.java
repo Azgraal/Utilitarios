@@ -4,6 +4,7 @@ import io.github.azgraal.excecoes.DataInvalidaExcecao;
 
 /**
  * Exceção para os problemas no valor do dia durante a criação de objetos Data.
+ * @author Jorge "Azgraal" Simões
  */
 public class DiaInvalidoExcecao extends DataInvalidaExcecao {
 
