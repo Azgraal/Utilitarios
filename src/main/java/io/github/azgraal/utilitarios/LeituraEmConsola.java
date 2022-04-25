@@ -13,7 +13,6 @@ import io.github.azgraal.excecoes.tempo.SegundoInvalidoExcecao;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 import io.github.azgraal.StringsGlobais;
 
@@ -34,15 +33,15 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve um número inteiro caso o valor inserido tenha sido válido.
      */
     public static int lerAceitaApenasInteiros(String instrucao){
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerAAIs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
         int numeroLido;
-        String escrita = leitura.nextLine();
+        String escrita = lerAAIs.nextLine();
         while (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
             System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
-            escrita = leitura.nextLine();
+            escrita = lerAAIs.nextLine();
         }
         numeroLido = Integer.parseInt(escrita);
         //leitura.close();
@@ -54,9 +53,9 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve um número inteiro caso o valor inserido tenha sido válido.
      */
     public static int lerAceitaApenasInteiros(){
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerAAI = new Scanner(System.in);
         int numeroLido;
-        String escrita = leitura.nextLine();
+        String escrita = lerAAI.nextLine();
         if (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
             throw new NumberFormatException(NUMERO_INVALIDO);
         }
@@ -78,16 +77,16 @@ public class LeituraEmConsola implements StringsGlobais{
         if (min >= max){
             throw new IllegalArgumentException(ERRO_MIN_MAX);
         }
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerAAICLs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
         int numeroLido;
         do {
-            String escrita = leitura.nextLine();
+            String escrita = lerAAICLs.nextLine();
             while (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
                 System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
-                escrita = leitura.nextLine();
+                escrita = lerAAICLs.nextLine();
             }
             numeroLido = Integer.parseInt(escrita);
             if (numeroLido > max || numeroLido < min) {
@@ -109,9 +108,9 @@ public class LeituraEmConsola implements StringsGlobais{
         if (min >= max){
             throw new IllegalArgumentException(ERRO_MIN_MAX);
         }
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerAAICL = new Scanner(System.in);
         int numeroLido;
-        String escrita = leitura.nextLine();
+        String escrita = lerAAICL.nextLine();
         if (escrita.isBlank() || escrita.isEmpty() || !isStringInteiro(escrita)) {
             throw new NumberFormatException(NUMERO_INVALIDO);
         }
@@ -130,15 +129,15 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve um float caso o valor inserido tenha sido válido
      */
     public static float lerAceitaFloat(String instrucao){
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerAFs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
         float numeroLido;
-        String escrita = leitura.nextLine();
+        String escrita = lerAFs.nextLine();
         while (escrita.isBlank() || escrita.isEmpty() || !isStringFloat(escrita)){
             System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
-            escrita = leitura.nextLine();
+            escrita = lerAFs.nextLine();
         }
         if (escrita.contains(",")){
             escrita = escrita.replaceAll(",", ".");
@@ -155,15 +154,15 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve um double caso o valor inserido tenha sido válido
      */
     public static double lerAceitaDouble(String instrucao){
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerADs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
         double numeroLido;
-        String escrita = leitura.nextLine();
+        String escrita = lerADs.nextLine();
         while (escrita.isBlank() || escrita.isEmpty() || !isStringDouble(escrita)){
             System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
-            escrita = leitura.nextLine();
+            escrita = lerADs.nextLine();
         }
         if (escrita.contains(",")){
             escrita = escrita.replaceAll(",", ".");
@@ -181,14 +180,14 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve uma string quando tiver recebido do teclado uma string válida.
      */
     public static String lerValidaString(String instrucao){
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerVSs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
-        String textoLido = leitura.nextLine();
+        String textoLido = lerVSs.nextLine();
         while (isStringValida(textoLido)){
             System.out.println(VALOR_INVALIDO + "\n" + instrucao);
-            textoLido = leitura.nextLine();
+            textoLido = lerVSs.nextLine();
         }
         //leitura.close();
         return textoLido;
@@ -203,11 +202,11 @@ public class LeituraEmConsola implements StringsGlobais{
      * @throws IllegalArgumentException exceção criada por não ter recebido uma string válida.
      */
     public static String lerString(String instrucao) throws IllegalArgumentException {
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerSs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
-        String textoLido = leitura.nextLine();
+        String textoLido = lerSs.nextLine();
         if (!isStringValida(textoLido)){
             throw new IllegalArgumentException(TEXTO_INVALIDO);
         }
@@ -221,8 +220,8 @@ public class LeituraEmConsola implements StringsGlobais{
      * @throws IllegalArgumentException exceção criada por não ter recebido uma string válida.
      */
     public static String lerString() throws IllegalArgumentException {
-        Scanner leitura = new Scanner(System.in);
-        String textoLido = leitura.nextLine();
+        Scanner lerS = new Scanner(System.in);
+        String textoLido = lerS.nextLine();
         if (!isStringValida(textoLido)){
             throw new IllegalArgumentException(TEXTO_INVALIDO);
         }
@@ -239,12 +238,12 @@ public class LeituraEmConsola implements StringsGlobais{
      * @return devolve a resposta escolhida.
      */
     public static boolean lerConfirmarSimOuNao(String instrucao, String confirmar, String rejeitar){
-        Scanner leitura = new Scanner(System.in);
+        Scanner lerCSONs = new Scanner(System.in);
         if (isStringValida(instrucao)){
             System.out.println(instrucao);
         }
         String linhaLida;
-        while ((linhaLida = leitura.nextLine()).isEmpty() ||
+        while ((linhaLida = lerCSONs.nextLine()).isEmpty() ||
                 (!(linhaLida = linhaLida.toLowerCase()).equals((confirmar).toLowerCase()) && !linhaLida.equals(rejeitar.toLowerCase()))){
             System.out.println(OPCAO_INVALIDA + "\n" + instrucao);
         }
