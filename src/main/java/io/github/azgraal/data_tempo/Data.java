@@ -1,6 +1,6 @@
 package io.github.azgraal.data_tempo;
 
-import io.github.azgraal.excecoes.DataInvalidaExcecao;
+import io.github.azgraal.excecoes.data.DataInvalidaExcecao;
 import io.github.azgraal.excecoes.data.AnoInvalidoExcecao;
 import io.github.azgraal.excecoes.data.DiaInvalidoExcecao;
 import io.github.azgraal.excecoes.data.MesInvalidoExcecao;

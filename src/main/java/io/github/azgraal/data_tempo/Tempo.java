@@ -1,7 +1,7 @@
 package io.github.azgraal.data_tempo;
 
 import io.github.azgraal.StringsGlobais;
-import io.github.azgraal.excecoes.TempoInvalidoExcecao;
+import io.github.azgraal.excecoes.tempo.TempoInvalidoExcecao;
 import io.github.azgraal.excecoes.tempo.*;
 
 import java.util.Calendar;

@@ -2,8 +2,8 @@ package io.github.azgraal.utilitarios;
 
 import io.github.azgraal.data_tempo.Data;
 import io.github.azgraal.data_tempo.Tempo;
-import io.github.azgraal.excecoes.DataInvalidaExcecao;
-import io.github.azgraal.excecoes.TempoInvalidoExcecao;
+import io.github.azgraal.excecoes.data.DataInvalidaExcecao;
+import io.github.azgraal.excecoes.tempo.TempoInvalidoExcecao;
 import io.github.azgraal.excecoes.data.AnoInvalidoExcecao;
 import io.github.azgraal.excecoes.data.DiaInvalidoExcecao;
 import io.github.azgraal.excecoes.data.MesInvalidoExcecao;

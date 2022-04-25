@@ -1,7 +1,5 @@
 package io.github.azgraal.excecoes.tempo;
 
-import io.github.azgraal.excecoes.TempoInvalidoExcecao;
-
 /**
  * Exceção para os problemas no valor das horas durante a criação de objetos Tempo.
  * @author Jorge "Azgraal" Simões

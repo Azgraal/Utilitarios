@@ -1,4 +1,4 @@
-package io.github.azgraal.excecoes;
+package io.github.azgraal.excecoes.tempo;
 
 /**
  * Exceção geral para os problemas na criação de objetos Tempo.
