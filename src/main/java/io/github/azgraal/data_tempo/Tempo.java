@@ -6,6 +6,9 @@ import io.github.azgraal.excecoes.tempo.*;
 
 import java.util.Calendar;
 
+/**
+ * Classe que permite criar objetos Tempo que indicam um momento com horas, minutos e segundos
+ */
 public class Tempo implements Comparable<Tempo>, StringsGlobais {
 
     private int horas;
@@ -25,6 +28,14 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
     private static final int SEGUNDOS_POR_OMISSAO = 0;
 
 
+    /**
+     * Construtor que recebe os valores para horas, minutos e segundos, e cria um objeto Tempo.
+     * @param horas as horas que o objeto deve ter.
+     * @param minutos os minutos que o objeto deve ter.
+     * @param segundos os segundos que o objeto deve ter.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
+     * das horas, minutos e segundos.
+     */
     public Tempo(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
         try {
             validarHora(horas);
@@ -39,6 +50,13 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
     }
 
 
+    /**
+     * Construtor que recebe os valores para horas e minutos, e cria um objeto Tempo.
+     * @param horas as horas que o objeto deve ter.
+     * @param minutos os minutos que o objeto deve ter.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
+     * das horas e minutos.
+     */
     public Tempo(int horas, int minutos) throws TempoInvalidoExcecao {
         try {
             validarHora(horas);
@@ -51,7 +69,12 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         }
     }
 
-
+    /**
+     * Construtor que recebe os valores para horas e cria um objeto Tempo.
+     * @param horas as horas que o objeto deve ter.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
+     * das horas.
+     */
     public Tempo(int horas) throws TempoInvalidoExcecao {
         try {
             validarHora(horas);
@@ -63,36 +86,73 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         }
     }
 
-
+    /**
+     * Construtor vazio que cria um objeto Tempo.
+     * @throws TempoInvalidoExcecao exceção criada caso haja algum parâmetro inválido durante a validação
+     * do tempo.
+     */
     public Tempo() {
         horas = HORAS_POR_OMISSAO;
         minutos = MINUTOS_POR_OMISSAO;
         segundos = SEGUNDOS_POR_OMISSAO;
     }
 
-
+    /**
+     * Construtor que recebe um objeto Tempo para criar um novo com as mesmas horas, minutos e segundos.
+     * @param outroTempo Tempo com os parâmetros a copiar.
+     */
     public Tempo(Tempo outroTempo) {
         horas = outroTempo.horas;
         minutos = outroTempo.minutos;
         segundos = outroTempo.segundos;
     }
 
-
+    /**
+     * Devolve o valor das horas de um Tempo.
+     * @return o valor das horas.
+     */
     public int getHoras() {
         return horas;
     }
 
-
+    /**
+     * Devolve o valor dos minutos de um Tempo.
+     * @return o valor dos minutos.
+     */
     public int getMinutos() {
         return minutos;
     }
 
-
+    /**
+     * Devolve o valor dos segundos de um Tempo.
+     * @return o valor dos segundos.
+     */
     public int getSegundos() {
         return segundos;
     }
 
+    /**
+     * Altera os valores completos do Tempo para os novos valores indicados.
+     * @param horas o novo valor das horas.
+     * @param minutos o novo valor dos minutos.
+     * @param segundos o novo valor dos segundos.
+     * @throws TempoInvalidoExcecao exceção criada caso algum dos novos valores seja inválido.
+     */
+    public void setTempo(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
+        try {
+            setHoras(horas);
+            setMinutos(minutos);
+            setSegundos(segundos);                                              //TODO testar antes de publicar!!!!!
+        } catch (TempoInvalidoExcecao e){
+            throw new TempoInvalidoExcecao(e.getMessage());
+        }
+    }
 
+    /**
+     * Altera o valor das horas de um Tempo para o valor indicado.
+     * @param horas o novo valor das horas.
+     * @throws TempoInvalidoExcecao exceção criada caso o novo valor seja inválido.
+     */
     public void setHoras(int horas) throws TempoInvalidoExcecao {
        try {
            validarHora(horas);
@@ -102,7 +162,11 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
        }
     }
 
-
+    /**
+     * Altera o valor dos minutos de um Tempo para o valor indicado.
+     * @param minutos o novo valor dos minutos.
+     * @throws TempoInvalidoExcecao exceção criada caso o novo valor seja inválido.
+     */
     public void setMinutos(int minutos) throws TempoInvalidoExcecao {
         try {
             validarMinuto(minutos);
@@ -112,7 +176,11 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         }
     }
 
-
+    /**
+     * Altera o valor dos segundos de um Tempo para o valor indicado.
+     * @param segundos o novo valor dos segundos.
+     * @throws TempoInvalidoExcecao exceção criada caso o novo valor seja inválido.
+     */
     public void setSegundos(int segundos) throws TempoInvalidoExcecao {
         try {
             validarSegundo(segundos);
@@ -122,38 +190,43 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         }
     }
 
+    /**
+     * Verifica se o valor indicado para as horas é válido.
+     * @param hora valor das horas.
+     * @throws HoraInvalidaExcecao exceção criada caso o valor das horas seja inválido.
+     */
     private void validarHora(int hora) throws HoraInvalidaExcecao {
         if (hora > 23){
             throw new HoraInvalidaExcecao(EXCECAO_HORAS);
         }
     }
 
+    /**
+     * Verifica se o valor indicado para os minutos é válido.
+     * @param minuto valor dos minutos.
+     * @throws MinutoInvalidoExcecao exceção criada caso o valor dos minutos seja inválido.
+     */
     private void validarMinuto(int minuto) throws MinutoInvalidoExcecao {
         if (minuto > 59){
             throw new MinutoInvalidoExcecao(EXCECAO_MINUTOS);
         }
     }
 
+    /**
+     * Verifica se o valor indicado para os segundos é válido.
+     * @param segundo valor dos segundos.
+     * @throws SegundoInvalidoExcecao exceção criada caso o valor dos segundos seja inválido.
+     */
     private void validarSegundo(int segundo) throws SegundoInvalidoExcecao {
         if (segundo > 59){
             throw new SegundoInvalidoExcecao(EXCECAO_SEGUNDOS);
         }
     }
 
-    public void setTempo(int horas, int minutos, int segundos) throws TempoInvalidoExcecao {
-        try {
-            validarHora(horas);
-            validarMinuto(minutos);
-            validarSegundo(segundos);
-            this.horas = horas;
-            this.minutos = minutos;
-            this.segundos = segundos;
-        } catch (TempoInvalidoExcecao e){
-            throw new TempoInvalidoExcecao(e.getMessage());
-        }
-    }
-
-
+    /**
+     * Mostra o Tempo por extenso na consola de maneira formatada, segundo o padrão de 12 horas.
+     * @return a string com o Tempo por extenso.
+     */
     @Override
     public String toString() {
         return String.format("%02d:%02d:%02d %s",
@@ -161,12 +234,19 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
                 minutos, segundos, horas < 12 ? AM : PM);
     }
 
-
+    /**
+     * Mostra o Tempo por extenso na consola de maneira formatada, segundo o padrão de 24 horas.
+     * @return a string com o Tempo por extenso.
+     */
     public String toStringHHMMSS() {
         return String.format("%02d:%02d:%02d", horas, minutos, segundos);
     }
 
-
+    /**
+     * Verifica se um objeto Tempo é igual a outro.
+     * @param outroObjeto o outro Tempo.
+     * @return devolve verdadeiro ou falso conforme os dois objetos sejam iguais ou não.
+     */
     @Override
     public boolean equals(Object outroObjeto) {
         if (this == outroObjeto) {
