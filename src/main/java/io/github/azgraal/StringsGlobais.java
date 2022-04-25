@@ -1,5 +1,8 @@
 package io.github.azgraal;
 
+/**
+ * Interface usada para guardar todas as Strings com o modificador 'final' usadas na biblioteca.
+ */
 public interface StringsGlobais {
 
     String EXCECAO_HORAS = "O valor de hora tem que ser um inteiro igual ou superior a zero e inferior a 24";
@@ -14,6 +17,9 @@ public interface StringsGlobais {
     String MINUTO_INVALIDO = "Minuto inválido";
     String SEGUNDO_INVALIDO = "Segundo inválido";
 
+    String ANO_PERGUNTA = "Ano: ";
+    String MES_PERGUNTA = "Mês: ";
+    String DIA_PERGUNTA = "Dia: ";
     String ANO_INVALIDO = "Ano inválido";
     String MES_INVALIDO = "Mês inválido";
     String DIA_INVALIDO = "Dia inválido";

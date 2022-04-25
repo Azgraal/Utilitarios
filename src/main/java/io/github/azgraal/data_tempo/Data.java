@@ -15,13 +15,13 @@ public class Data implements Comparable<Data>, StringsGlobais {
     private int dia;
 
     private enum NomeDiaDaSemana {
+        DOMINGO(S_DOMINGO),
         SEGUNDA(S_SEGUNDA),
         TERCA(S_TERCA),
         QUARTA(S_QUARTA),
         QUINTA(S_QUINTA),
         SEXTA(S_SEXTA),
-        SABADO(S_SABADO),
-        DOMINGO(S_DOMINGO);
+        SABADO(S_SABADO);
         private String nomeDia;
         NomeDiaDaSemana(String nomeDia){this.nomeDia = nomeDia;}
         public String getNomeDia() {
@@ -30,6 +30,7 @@ public class Data implements Comparable<Data>, StringsGlobais {
     }
 
     private enum Meses{
+        INVALIDO("", 0),
         JANEIRO(S_JANEIRO, 31),
         FEVEREIRO(S_FEVEREIRO, 28),
         MARCO(S_MARCO, 31),
