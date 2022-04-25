@@ -6,12 +6,18 @@ import io.github.azgraal.excecoes.ExtensaoInvalidaExcecao;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Formatter;
+import java.util.Locale;
 
 /**
  * Classe com métodos estáticos para processamento de dados.
  * @author Jorge "Azgraal" Simões
  */
 public class Processamento implements StringsGlobais {
+
+    /**
+     * Locale disponibilizado para permitir o uso da formatação em PT-PT.
+     */
+    public static final Locale PORTUGUES = new Locale("pt", "PT");
 
     /**
      * Converte as vírgulas decimais em pontos decimais para garantir a compatibilidade nas operações com números, caso sejam inseridos números com parte decimal usando a vírgul como separador.

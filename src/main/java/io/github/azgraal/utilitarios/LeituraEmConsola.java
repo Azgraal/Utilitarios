@@ -28,11 +28,6 @@ import static io.github.azgraal.utilitarios.Verificacao.*;
 public class LeituraEmConsola implements StringsGlobais{
 
     /**
-     * Locale disponibilizado para permitir o uso da formatação em PT-PT.
-     */
-    public static final Locale PORTUGUES = new Locale("pt", "PT");
-
-    /**
      * Lê uma string escrita na consola e verifica se é um número inteiro válido, mostrando antes
      * uma mensagem de informação passada em string.
      * @param instrucao mensagem a apresentar antes de fazer a leitura.
@@ -50,7 +45,7 @@ public class LeituraEmConsola implements StringsGlobais{
             escrita = leitura.nextLine();
         }
         numeroLido = Integer.parseInt(escrita);
-        leitura.close();
+        //leitura.close();
         return numeroLido;
     }
 
@@ -99,7 +94,7 @@ public class LeituraEmConsola implements StringsGlobais{
                 System.out.println(NUMERO_INVALIDO + "\n" + instrucao);
             }
         } while (numeroLido > max || numeroLido < min);
-        leitura.close();
+        //leitura.close();
         return numeroLido;
     }
 
@@ -124,7 +119,7 @@ public class LeituraEmConsola implements StringsGlobais{
         if (numeroLido > max || numeroLido < min) {
             throw new NumberFormatException(ERRO_LIMITES);
         }
-        leitura.close();
+        //leitura.close();
         return numeroLido;
     }
 
@@ -149,7 +144,7 @@ public class LeituraEmConsola implements StringsGlobais{
             escrita = escrita.replaceAll(",", ".");
         }
         numeroLido = Float.parseFloat(escrita);
-        leitura.close();
+        //leitura.close();
         return numeroLido;
     }
 
@@ -174,7 +169,7 @@ public class LeituraEmConsola implements StringsGlobais{
             escrita = escrita.replaceAll(",", ".");
         }
         numeroLido = Double.parseDouble(escrita);
-        leitura.close();
+        //leitura.close();
         return numeroLido;
     }
 
@@ -195,7 +190,7 @@ public class LeituraEmConsola implements StringsGlobais{
             System.out.println(VALOR_INVALIDO + "\n" + instrucao);
             textoLido = leitura.nextLine();
         }
-        leitura.close();
+        //leitura.close();
         return textoLido;
     }
 
@@ -216,7 +211,7 @@ public class LeituraEmConsola implements StringsGlobais{
         if (!isStringValida(textoLido)){
             throw new IllegalArgumentException(TEXTO_INVALIDO);
         }
-        leitura.close();
+        //leitura.close();
         return textoLido;
     }
 
@@ -231,7 +226,7 @@ public class LeituraEmConsola implements StringsGlobais{
         if (!isStringValida(textoLido)){
             throw new IllegalArgumentException(TEXTO_INVALIDO);
         }
-        leitura.close();
+        //leitura.close();
         return textoLido;
     }
 
@@ -253,7 +248,7 @@ public class LeituraEmConsola implements StringsGlobais{
                 (!(linhaLida = linhaLida.toLowerCase()).equals((confirmar).toLowerCase()) && !linhaLida.equals(rejeitar.toLowerCase()))){
             System.out.println(OPCAO_INVALIDA + "\n" + instrucao);
         }
-        leitura.close();
+        //leitura.close();
         return linhaLida.equalsIgnoreCase(confirmar);
     }
 
