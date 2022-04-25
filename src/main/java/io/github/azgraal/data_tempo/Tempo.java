@@ -138,7 +138,7 @@ public class Tempo implements Comparable<Tempo>, StringsGlobais {
         try {
             setHoras(horas);
             setMinutos(minutos);
-            setSegundos(segundos);                
+            setSegundos(segundos);
         } catch (TempoInvalidoExcecao e){
             throw new TempoInvalidoExcecao(e.getMessage());
         }
