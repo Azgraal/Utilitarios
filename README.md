@@ -19,4 +19,5 @@ Esta biblioteca foi pensada para ser uma compilação de métodos muitas vezes r
 
 ## Como usar:
 Basta adicionar o código do Maven Central ao ficheiro pom.xml de qualquer projeto que use Java.
-Nota: Já que grande parte dos métodos tem validação de dados de uma forma ou de outra, a necessidade de usar declarações try-catch (ou indicar o "throws" na assinatura do método, se for mais apropriado) vai ser comum.
+
+Nota: Já que grande parte dos métodos têm validação de dados de uma forma ou de outra, é recomendado o uso de declarações try-catch (ou indicar o "throws" na assinatura do método, se for mais apropriado) na maior parte das situações para um melhor desempenho.
